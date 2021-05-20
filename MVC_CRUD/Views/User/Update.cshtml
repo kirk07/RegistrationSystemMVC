@@ -1,0 +1,66 @@
+﻿@model MVC_CRUD.Models.User
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Update Form";
+}
+
+<div class="container-fluid bg-light" style="
+        border-radius: 10px;
+        height: 10%;
+        width: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+    <h2>UPDATE USER ACCOUNT</h2>
+
+    <div asp-validation-summary="All" class="alert-danger"></div>
+
+    <form asp-action="update" method="post">
+        <div class="form-group">
+            <input type="hidden" asp-for="UserId" />
+            <label class="form-label">Full Name</label>
+            <input class="form-control" asp-for="Name" placeholder="FIRSTNAME LASTNAME" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Home Address</label>
+            <input class="form-control" asp-for="Address" placeholder="ADDRESS" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input class="form-control" asp-for="Email" placeholder="EMAIL" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-control" asp-for="Contact" placeholder="CONTACT" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Age</label>
+            <input class="form-control" asp-for="Age" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Marital Status</label>
+            <select class="form-control" asp-for="MStatus" id="MStatus" required>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Widowed</option>
+                <option>Divorced</option>
+                <option>Separated</option>
+            </select>
+        </div>
+
+        GENDER:
+        <input type="radio" name="Gender" value="Male"> Male
+        <input type="radio" name="Gender" value="Female"> Female<br><br>
+
+        <div class="form-group">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control" asp-for="Password" placeholder="PASSWORD" required /><br>
+            <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="CONFIRM PASSWORD" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
